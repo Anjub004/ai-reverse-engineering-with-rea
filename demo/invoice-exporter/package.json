@@ -1,0 +1,14 @@
+{
+  "name": "invoice-exporter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A tiny Electron app with a deliberately mysterious Export button, used to practise reverse engineering with REA.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}
