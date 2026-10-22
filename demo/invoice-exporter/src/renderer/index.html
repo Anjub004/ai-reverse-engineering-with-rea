@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <title>Invoice Exporter</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f1524; color: #e8eef8; display: grid; place-items: center; height: 100vh; margin: 0; }
+    main { text-align: center; }
+    button { font-size: 16px; padding: 12px 28px; border-radius: 8px; border: 0; background: #40e0d0; color: #0a101e; cursor: pointer; }
+    p { color: #96a8c6; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Invoice Exporter</h1>
+    <p id="summary">Loading invoices…</p>
+    <button id="export">Export invoices</button>
+    <p id="result"></p>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>
