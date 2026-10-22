@@ -1,0 +1,18 @@
+[
+  { "number": "INV-1004", "date": "2026-09-03", "customer": "  Lusaka Fresh Foods ", "status": "paid",
+    "lines": [ { "sku": "MANGO-1KG", "qty": 12, "unitPrice": 45.5, "discountPct": 10 },
+               { "sku": "BAG-PAPER", "qty": 2, "unitPrice": 3.25, "discountPct": 50 } ] },
+  { "number": "INV-1001", "date": "2026-09-01", "customer": "Kabwe Traders", "status": "paid",
+    "lines": [ { "sku": "RICE-25KG", "qty": 4, "unitPrice": 610, "discountPct": 5 } ] },
+  { "number": "INV-1002", "date": "2026-09-01", "customer": "Ndola Wholesale, Ltd", "status": "cancelled",
+    "lines": [ { "sku": "OIL-5L", "qty": 20, "unitPrice": 189.99 } ] },
+  { "number": "INV-1003", "date": "2026-09-02", "customer": "Copperbelt Clinics", "status": "open", "vatExempt": true,
+    "lines": [ { "sku": "WATER-500ML", "qty": 48, "unitPrice": 6.15, "discountPct": 2.5 } ] },
+  { "number": "INV-1005", "date": "2026-09-03", "customer": "Livingstone \"Big\" Hotel", "status": "open",
+    "lines": [ { "sku": "FRIDGE-300L", "qty": 2, "unitPrice": 4899.99 },
+               { "sku": "DELIVERY", "qty": 1, "unitPrice": 350 } ] },
+  { "number": "INV-1006", "date": "2026-09-04", "customer": "Chipata Corner Shop", "status": "draft",
+    "lines": [] },
+  { "number": "INV-1000", "date": "2026-08-31", "customer": "Ndola Wholesale, Ltd", "status": "paid",
+    "lines": [ { "sku": "SUGAR-2KG", "qty": 10, "unitPrice": 52.45, "discountPct": 7.5 } ] }
+]
