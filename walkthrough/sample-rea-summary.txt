@@ -1,0 +1,59 @@
+Target:   invoice-exporter
+Analyzer: REA JavaScript application analyzer
+
+Summary
+{
+  "browser_windows": 1,
+  "explicit_web_preferences": 3,
+  "preload_entrypoints": 1,
+  "context_bridge_apis": 1,
+  "exposed_api_members": 2,
+  "ipc": {
+    "operations": 4,
+    "literal_channels": 2,
+    "dynamic_channel_operations": 0,
+    "renderer_transmissions": 2,
+    "renderer_listeners": 0,
+    "main_handlers": 2,
+    "paired_renderer_transmissions": 2,
+    "ambiguous_renderer_transmissions": 0,
+    "unpaired_literal_renderer_transmissions": 0
+  },
+  "sender_validation_observations": 0,
+  "utility_processes": 0,
+  "resolved_utility_entrypoints": 0,
+  "native_addon_bindings": 0,
+  "resolved_native_addon_bindings": 0
+}
+
+Findings (with evidence location)
+- [browser-window] BrowserWindow@10:14-18:4  ->  src/main.js:10
+- [context-bridge-api] invoiceApi  ->  src/preload.js:5
+- [electron-preload] src/preload.js  ->  src/main.js:10
+- [electron-preload] src/preload.js  ->  src/main.js:14
+- [ipc-channel] invoices:count  ->  src/main.js:22
+- [ipc-channel] invoices:count  ->  src/preload.js:6
+- [ipc-channel] invoices:export  ->  src/main.js:24
+- [ipc-channel] invoices:export  ->  src/preload.js:7
+- [ipc-handler] invoices:count  ->  src/main.js:22
+- [ipc-handler] invoices:export  ->  src/main.js:24
+
+IPC relationships
+- ipc-handler:invoices:count --handles--> ipc-channel:invoices:count  (src/main.js:22)
+- ipc-handler:invoices:export --handles--> ipc-channel:invoices:export  (src/main.js:24)
+- javascript-asset:src/main.js --contains--> ipc-handler:invoices:count  (src/main.js:22)
+- javascript-asset:src/main.js --contains--> ipc-handler:invoices:export  (src/main.js:24)
+- javascript-asset:src/preload.js --exposes--> context-bridge-api:invoiceApi  (src/preload.js:5)
+- javascript-asset:src/preload.js --invokes--> ipc-channel:invoices:count  (src/preload.js:6)
+- javascript-asset:src/preload.js --invokes--> ipc-channel:invoices:export  (src/preload.js:7)
+- javascript-asset:src/preload.js --invokes--> ipc-handler:invoices:count  (src/preload.js:6)
+- javascript-asset:src/preload.js --invokes--> ipc-handler:invoices:export  (src/preload.js:7)
+
+Limitations reported by REA
+- CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.
+- Electron API identity follows proven lexical module aliases and structurally verified module-namespace interop. Other reassignments, dynamic selections, and visibly overwritten namespace members are unresolved; missing findings do not establish absence. Arbitrary call side effects and runtime registration are not evaluated.
+- Electron relationships are derived from inert syntax; runtime registration, reachability, defaults, and enforcement remain unproven.
+- JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.
+- Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.
+- Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.
+- Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code.
